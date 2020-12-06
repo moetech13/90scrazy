@@ -13,7 +13,7 @@
           align-items: center;
   height: 100vh;
   position: relative;
-  background: #232b4a;
+  background:rgba(0, 0, 0, 0.1);
   text-align: center;
   padding: 0 2em;
 }
