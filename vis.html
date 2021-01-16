@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta name="robots" content="index,follow"/>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no"/>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+      <meta name="description" content="Growing up, we all had our fav tv shows. Let's take a stroll down memory lane and use our Senses to beat 90s Crazzy. Let's get Smarter, One Synapse at a Time; using Cognitive & Experimental Learning"/>
+      <meta name="keywords" content="Mouminatou Barry, Moe Techtainment, HTML, CSS, Cognitive, JavaScript, Physics, Barry, Neuro, United Nation, Leader, STEM, STEAM"/>
+      <meta name="author" content="Mouminatou Barry, Moe Techtainment"/>
+    <title>90s Crazy</title>
+      <!--Icon-->
+      <link rel="icon" type="image/png" href="imgs/moeiconb.png">
+      <link rel="science, memory, Mouminatou, Moe Techtainment, 90s crazy, united nation,leader" >
+      <!-- Bootstrap CSS -->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"> 
+      <link rel="stylesheet" type="text/css" media="screen" href="src/style.css">
+      <!-- Icons/font -->
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+      <link href="https://fonts.googleapis.com/css?family=Arima+Madurai|Atma|Coiny|Handlee|Rum+Raisin&display=swap" rel="stylesheet">
+         <!-- bootstrap/query -->
+      <!-- <script type="text/javascript" src="src/style.js"></script> -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.min.css"> 
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick-theme.min.css"> 
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.min.js"></script>       
+      <!--  -->
+        <style>
+            body,html{
+            background-color: rgba(0, 0, 0, 1);
+            }
+            h1,h3{color:#fff;
+              font-size: 15px;
+             
+            }
+            .Marquee {
+              background: -webkit-linear-gradient(225deg, #e54ab6, #980c6e);
+              background: -moz-linear-gradient(225deg, #e54ab6, #980c6e);
+              background: -o-linear-gradient(225deg, #e54ab6, #980c6e);
+              background: -ms-linear-gradient(225deg, #e54ab6, #980c6e);
+              background: linear-gradient(-135deg, #e54ab6, #980c6e);
+              text-align: center;
+            }
+           
+
+            a {
+  color: #53BDFF;
+  text-decoration: none;
+  font-size: 14px;
+}
+a:hover {
+  color: #86d1ff;
+}
+
+.hangman {
+  font-family: "Londrina Solid", cursive;
+  margin: 0 auto;
+  text-align: center;
+  padding: 10px;
+}
+
+h5 {
+  font-size: 50px;
+  margin-bottom: 20px;
+  color: #53BDFF;
+  font-weight: 300;
+}
+
+
+@keyframes letteranim {
+  50% {
+    transform: translateY(-5px) scale(1.05);
+  }
+}
+.letter {
+  display: inline-block;
+  color: transparent;
+  border-bottom: 5px solid #53BDFF;
+  margin: 0 10px;
+  font-size: 50px;
+  padding: 10px;
+  transition: 0.5s;
+  text-transform: uppercase;
+}
+
+.word {
+  display: block;
+  white-space: nowrap;
+}
+
+.correct {
+  color: #53BDFF;
+  text-shadow: 1px 2px 0 #20a9ff;
+  animation: letteranim 0.3s ease;
+}
+
+.guessForm {
+  margin: 20px auto 0;
+}
+.guessForm input, .guessForm .guessButton {
+  font-family: "Londrina Solid", cursive;
+}
+.guessForm input[type=text] {
+  outline: none;
+  padding: 10px;
+  font-size: 30px;
+  margin-bottom: 20px;
+  margin-right: 5px;
+  border: 1px solid #aaa;
+  color: gray;
+}
+.guessForm .guessButton {
+  border: none;
+  font-size: 30px;
+  padding: 10px 20px;
+  cursor: pointer;
+  background: #53BDFF;
+  color: white;
+  transition: 0.3s;
+  margin: 10px 0;
+  text-shadow: 1px 2px 0 #20a9ff;
+}
+.guessForm .guessButton:hover {
+  background: #20a9ff;
+}
+
+.wrongLetters {
+  font-size: 20px;
+}
+.wrongLetters p {
+  margin-bottom: 10px;
+}
+.wrongLetters li {
+  display: inline-block;
+  font-size: 40px;
+  background: #ff4d4d;
+  text-shadow: 1px 2px 0 red;
+  padding: 10px;
+  color: white;
+  text-transform: uppercase;
+  margin-right: 10px;
+  animation: letteranim 0.3s ease;
+}
+
+.message {
+  display: none;
+  padding: 20px;
+  position: absolute;
+  top: 110px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  /*   height: 100%; */
+  background: #0091ec;
+  z-index: 12402402;
+}
+.message h5 {
+  display: none;
+  color: white;
+  text-shadow: 1px 2px 0 #ccc;
+}
+.message .highlight {
+  color: yellow;
+  text-transform: capitalize;
+}
+.message .text {
+  color: white;
+  font-size: 30px;
+  display: none;
+}
+.message .text p {
+  color: white;
+}
+.message .text .highlight {
+  font-size: 40px;
+}
+.message .muted {
+  margin: 20px auto;
+  color: #86d1ff;
+}
+
+
+        </style>
+    </head>
+    <!--  -->
+    <div class="particle-network-animation"></div>
+    <body>   
+      <div class="container">
+        <div class="row align-items-center">
+          <div id="modal-container">
+            <div class="modal-background">
+              <div class="modal">
+                <a href="home.html"><img src="imgs/90slogo.png" height="70px" alt="moe techtainment"></a>
+                <br><br>
+                <div>
+                <h2 style="color:#ffc600;">How to Play</h2>
+                 <h3>Choose a Channel, then a Show</h3><br><h2 style="color:#ffc600;">Level 1:</h2><h3>Listen to the theme song <br> you'll only have 60 secs to guess</h3><br><h2 style="color:#ffc600;">Level 2: </h2> <h3>Choose a character and guess their real or show name </h3>               
+                <!--  -->
+              
+                  <nav id="nav-3">
+                    <a class="link-3" href="baby.html"><img src="imgs/90baby.png" height="45px"></a>
+                    <a class="link-3" href="cn.html"><img src="imgs/90cn.png" height="45px"></a>
+                    <a class="link-3" href="dis.html"><img src="imgs/90dis.png" height="45px"></a>
+                    <a class="link-3" href="misc.html"><img src="imgs/90misc.png" height="45px"></a>
+                    <a class="link-3" href="nick.html"><img src="imgs/90nick.png" height="45px"></a>
+                  </nav>
+                  </div>
+                  <br>
+                  <!--  -->
+                  <div class="d-grid gap-3 d-md-block">
+                    <button class="btn btn-primary" type="button">Profile</button>
+                    <button class="btn btn-primary" type="button">Leaderboard</button>
+                    <button class="btn btn-primary" type="button">Settings</button>
+                  </div> <br>
+                  <div class="container" style="color: #f382bf; height: 20px;">
+                    <h3>Let's Reminisce</h3>
+                  </div><br>
+                  <div> <img src="imgs/moetw.png" height="40px"></div>
+              </div>
+            </div>
+          </div>
+          <div class="content">
+              <div id="one" class="button"><img src="imgs/90srem.png" height="100px"></div>
+          </div>
+          <!-- <div class="col"></div> -->
+          <div class="col"><img src="imgs/90saudio.png" height="300px"><h2 style="font-size: 15px;">Listen to the theme, are your neurons tingling?</h2></div>
+          <div class="d-grid gap-2 d-md-block">
+            <button class="btn btn-primary" type="button"><i class="bi bi-skip-backward-fill"></i></button>
+            <button class="btn btn-primary" type="button"><i class="bi bi-skip-forward-fill"></i></button>
+          </div>
+          <!--  -->
+          <div class="d-grid gap-2 d-md-block">
+            <button class="btn btn-primary" type="button">Shuffle</button>
+            <button class="btn btn-primary" type="button">Restart</button>
+          </div>
+          <!-- <div class="col"><img src="imgs/90srem.png" height="70px"></div> -->
+        </div>
+      </div> 
+      <div class="container" style="height:100px"></div>
+      <div class="container">
+      
+         <audio controls autoplay>
+            <source src="/assets/L1/90Baby/readingrainbowL1.wav" type="audio/wav">
+          </audio>
+<!--  -->
+      <!--Simpsons Game -->
+      <h1 id="title">The Simpsons...</h1>
+      <h3>Guess each character's <span class="red">FIRST</span> name</h3>
+    <div class="container row">
+      <!-- Card One -->
+      <div class="col-md-4">  
+      <div class="spacing">
+        <h1 id="name0">***</h1>
+        <img id="pic0" src="https://raw.githubusercontent.com/sbjacobs231/The-Simpsons-Guess-Who-Game/master/img/homerblur.jpg">
+        <input type="text" id="answer0">
+      </div>
+      </div>
+      <!-- Card Two -->
+      <div class="col-md-4">
+      <div class="spacing">
+        <h1 id="name1">***</h1>
+        <img id="pic1" src="https://raw.githubusercontent.com/sbjacobs231/The-Simpsons-Guess-Who-Game/master/img/margeblur.jpg">
+        <input type="text" id="answer1">
+      </div>
+      </div>
+      <!-- Card Three -->
+      <div class="col-md-4">
+      <div class="spacing">
+        <h1 id="name2">***</h1>
+        <img id="pic2" src="https://raw.githubusercontent.com/sbjacobs231/The-Simpsons-Guess-Who-Game/master/img/maggieblur.jpg">
+        <input type="text" id="answer2">
+      </div>
+      </div>
+    </div>
+      <!-- Card Four -->
+      <div class="container row">
+      <div class="col-md-4">
+      <div class="spacing">
+        <h1 id="name3">***</h1>
+        <img id="pic3" src="https://raw.githubusercontent.com/sbjacobs231/The-Simpsons-Guess-Who-Game/master/img/bartblur.jpg">
+        <input type="text" id="answer3">
+      </div>
+  </div>
+      <!-- Card Five -->
+      <div class="col-md-4">
+      <div class="spacing">
+        <h1 id="name4">***</h1>
+        <img id="pic4" src="https://raw.githubusercontent.com/sbjacobs231/The-Simpsons-Guess-Who-Game/master/img/lisablur.jpg">
+        <input type="text" id="answer4">
+      </div>
+  </div>
+      <!-- Card Six -->
+      <div class="col-md-4">
+      <div class="spacing">
+        <h1 id="name5">***</h1>
+        <img id="pic5" src="https://raw.githubusercontent.com/sbjacobs231/The-Simpsons-Guess-Who-Game/master/img/moeblur.jpg">
+        <input type="text" id="answer5">
+    </div>
+  </div>
+  </div>
+      <div class="buttonwrap">
+        <button id="btn" type="button" onclick="passAnswers()">Submit</button>
+      </div>
+<!--  -->
+      </div>
+
+      <div class="container" style="height:100px"></div>
+      <div class="container" style="height:100px"><a href="home.html"><img src="imgs/90slogo.png" height="100px" alt="moe techtainment"></a></div>
+      <div class="container">
+        <nav id="nav-3">
+          <a class="link-3" href="baby.html"><img src="imgs/90baby.png" height="33px"></a>
+          <a class="link-3" href="cn.html"><img src="imgs/90cn.png" height="33px"></a>
+          <a class="link-3" href="dis.html"><img src="imgs/90dis.png" height="33px"></a>
+          <a class="link-3" href="misc.html"><img src="imgs/90misc.png" height="33px"></a>
+          <a class="link-3" href="nick.html"><img src="imgs/90nick.png" height="33px"></a>
+        </nav>
+        </div>
+      <div class="container" style="height:25px"></div>
+      <div class="container" style="text-align: center;"> <img src="imgs/moetw.png" height="33px"></div>
+      <div class="container" style="height:50px"></div>
+
+
+
+                <!-- ROW4 -->
+                <!-- <div class="row">
+                    <div class="col-md-12">
+                        <div class="Marquee">
+                            <div class="Marquee-content">
+                              <div class="Marquee-tag"><img src="imgs/90slogo.png" height="50px"></div>
+                              <div class="Marquee-tag">1</div>
+                              <div class="Marquee-tag">2</div>
+                              <div class="Marquee-tag">3</div>
+                              <div class="Marquee-tag">4</div>
+                              <div class="Marquee-tag">5</div>
+                              <div class="Marquee-tag">6</div>
+                              <div class="Marquee-tag"><img src="imgs/90slogo.png" height="50px"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+                                  
+    <!--  -->
+  
+<!-- JS -->   <!--JavaScript at end of body for optimized loading-->
+     <!-- <script type="text/javascript" src="js/materialize.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>          
+    <script type="text/javascript">
+    $('.button').click(function(){
+      var buttonId = $(this).attr('id');
+      $('#modal-container').removeAttr('class').addClass(buttonId);
+      $('body').addClass('modal-active');
+    })
+
+    $('#modal-container').click(function(){
+      $(this).addClass('out');
+      $('body').removeClass('modal-active');
+    });
+    </script>
+      
+    <script type="text/javascript">
+    // Level2
+var answers = ["homer", "marge", "maggie", "bart", "lisa", "moe"];
+
+//Process Answer
+function passAnswers() {
+  for (i = 0; i < answers.length; i++) {
+    var collect = document.getElementById("answer" + i).value;
+    if (collect.toLowerCase() == answers[i]) {
+      var collect = document.getElementById("answer" + i);
+      collect.style.color = "#00FF00";
+      correctAnswers();
+    } else {
+      var collect = document.getElementById("answer" + i);
+      collect.style.color = "#FF0000";
+    }
+  }
+}
+
+//When the answer is correct
+function correctAnswers() {
+  var name = document.getElementById("name" + i);
+  name.innerHTML = answers[i];
+
+  var pic = document.getElementById("pic" + i);
+  pic.src =
+    "https://raw.githubusercontent.com/sbjacobs231/The-Simpsons-Guess-Who-Game/master/img/" +
+    answers[i] +
+    ".jpg";
+}
+
+//return key function
+for (i = 0; i < answers.length; i++) {
+  $("#answer" + i).keyup(function (event) {
+    if (event.keyCode == 13) {
+      $("#btn").click();
+    }
+  });
+}
+
+      //SYNAPSES
+          
+  (function() {
+    var ParticleNetworkAnimation, PNA;
+    ParticleNetworkAnimation = PNA = function() {};
+  
+    PNA.prototype.init = function(element) {
+      this.$el = $(element);
+  
+      this.container = element;
+      this.canvas = document.createElement("canvas");
+      this.sizeCanvas();
+      this.container.appendChild(this.canvas);
+      this.ctx = this.canvas.getContext("2d");
+      this.particleNetwork = new ParticleNetwork(this);
+  
+      this.bindUiActions();
+  
+      return this;
+    };
+  
+    PNA.prototype.bindUiActions = function() {
+      $(window).on(
+        "resize",
+        function() {
+          // this.sizeContainer();
+          this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+          this.sizeCanvas();
+          this.particleNetwork.createParticles();
+        }.bind(this)
+      );
+    };
+  
+    PNA.prototype.sizeCanvas = function() {
+      this.canvas.width = this.container.offsetWidth;
+      this.canvas.height = this.container.offsetHeight;
+    };
+  
+    var Particle = function(parent, x, y) {
+      this.network = parent;
+      this.canvas = parent.canvas;
+      this.ctx = parent.ctx;
+      this.particleColor = returnRandomArrayitem(
+        this.network.options.particleColors
+      );
+      this.radius = getLimitedRandom(1.5, 2.5);
+      this.opacity = 0;
+      this.x = x || Math.random() * this.canvas.width;
+      this.y = y || Math.random() * this.canvas.height;
+      this.velocity = {
+        x: (Math.random() - 0.5) * parent.options.velocity,
+        y: (Math.random() - 0.5) * parent.options.velocity
+      };
+    };
+  
+    Particle.prototype.update = function() {
+      if (this.opacity < 1) {
+        this.opacity += 0.01;
+      } else {
+        this.opacity = 1;
+      }
+      // Change dir if outside map
+      if (this.x > this.canvas.width + 100 || this.x < -100) {
+        this.velocity.x = -this.velocity.x;
+      }
+      if (this.y > this.canvas.height + 100 || this.y < -100) {
+        this.velocity.y = -this.velocity.y;
+      }
+  
+      // Update position
+      this.x += this.velocity.x;
+      this.y += this.velocity.y;
+    };
+  
+    Particle.prototype.draw = function() {
+      // Draw particle
+      this.ctx.beginPath();
+      this.ctx.fillStyle = this.particleColor;
+      this.ctx.globalAlpha = this.opacity;
+      this.ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
+      this.ctx.fill();
+    };
+  
+    var ParticleNetwork = function(parent) {
+      this.options = {
+        velocity: 1, // the higher the faster
+        density: 15000, // the lower the denser
+        netLineDistance: 200,
+        netLineColor: "#0299bb",
+        particleColors: ["#d69b0c"] // ['#6D4E5C', '#aaa', '#FFC458' ]
+      };
+      this.canvas = parent.canvas;
+      this.ctx = parent.ctx;
+  
+      this.init();
+    };
+  
+    ParticleNetwork.prototype.init = function() {
+      // Create particle objects
+      this.createParticles(true);
+  
+      // Update canvas
+      this.animationFrame = requestAnimationFrame(this.update.bind(this));
+  
+      this.bindUiActions();
+    };
+  
+    ParticleNetwork.prototype.createParticles = function(isInitial) {
+      // Initialise / reset particles
+      var me = this;
+      this.particles = [];
+      var quantity =
+        this.canvas.width * this.canvas.height / this.options.density;
+  
+      if (isInitial) {
+        var counter = 0;
+        clearInterval(this.createIntervalId);
+        this.createIntervalId = setInterval(
+          function() {
+            if (counter < quantity - 1) {
+              // Create particle object
+              this.particles.push(new Particle(this));
+            } else {
+              clearInterval(me.createIntervalId);
+            }
+            counter++;
+          }.bind(this),
+          250
+        );
+      } else {
+        // Create particle objects
+        for (var i = 0; i < quantity; i++) {
+          this.particles.push(new Particle(this));
+        }
+      }
+    };
+  
+    ParticleNetwork.prototype.createInteractionParticle = function() {
+      // Add interaction particle
+      this.interactionParticle = new Particle(this);
+      this.interactionParticle.velocity = {
+        x: 0,
+        y: 0
+      };
+      this.particles.push(this.interactionParticle);
+      return this.interactionParticle;
+    };
+  
+    ParticleNetwork.prototype.removeInteractionParticle = function() {
+      // Find it
+      var index = this.particles.indexOf(this.interactionParticle);
+      if (index > -1) {
+        // Remove it
+        this.interactionParticle = undefined;
+        this.particles.splice(index, 1);
+      }
+    };
+  
+    ParticleNetwork.prototype.update = function() {
+      if (this.canvas) {
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        this.ctx.globalAlpha = 1;
+  
+        // Draw connections
+        for (var i = 0; i < this.particles.length; i++) {
+          for (var j = this.particles.length - 1; j > i; j--) {
+            var distance,
+              p1 = this.particles[i],
+              p2 = this.particles[j];
+  
+            // check very simply if the two points are even a candidate for further measurements
+            distance = Math.min(Math.abs(p1.x - p2.x), Math.abs(p1.y - p2.y));
+            if (distance > this.options.netLineDistance) {
+              continue;
+            }
+  
+            // the two points seem close enough, now let's measure precisely
+            distance = Math.sqrt(
+              Math.pow(p1.x - p2.x, 2) + Math.pow(p1.y - p2.y, 2)
+            );
+            if (distance > this.options.netLineDistance) {
+              continue;
+            }
+  
+            this.ctx.beginPath();
+            this.ctx.strokeStyle = this.options.netLineColor;
+            this.ctx.globalAlpha =
+              (this.options.netLineDistance - distance) /
+              this.options.netLineDistance *
+              p1.opacity *
+              p2.opacity;
+            this.ctx.lineWidth = 0.7;
+            this.ctx.moveTo(p1.x, p1.y);
+            this.ctx.lineTo(p2.x, p2.y);
+            this.ctx.stroke();
+          }
+        }
+  
+        // Draw particles
+        for (var i = 0; i < this.particles.length; i++) {
+          this.particles[i].update();
+          this.particles[i].draw();
+        }
+  
+        if (this.options.velocity !== 0) {
+          this.animationFrame = requestAnimationFrame(this.update.bind(this));
+        }
+      } else {
+        cancelAnimationFrame(this.animationFrame);
+      }
+    };
+  
+    ParticleNetwork.prototype.bindUiActions = function() {
+      // Mouse / touch event handling
+      this.spawnQuantity = 3;
+      this.mouseIsDown = false;
+      this.touchIsMoving = false;
+  
+      this.onMouseMove = function(e) {
+        if (!this.interactionParticle) {
+          this.createInteractionParticle();
+        }
+        this.interactionParticle.x = e.offsetX;
+        this.interactionParticle.y = e.offsetY;
+      }.bind(this);
+  
+      this.onTouchMove = function(e) {
+        e.preventDefault();
+        this.touchIsMoving = true;
+        if (!this.interactionParticle) {
+          this.createInteractionParticle();
+        }
+        this.interactionParticle.x = e.changedTouches[0].clientX;
+        this.interactionParticle.y = e.changedTouches[0].clientY;
+      }.bind(this);
+  
+      this.onMouseDown = function(e) {
+        this.mouseIsDown = true;
+        var counter = 0;
+        var quantity = this.spawnQuantity;
+        var intervalId = setInterval(
+          function() {
+            if (this.mouseIsDown) {
+              if (counter === 1) {
+                quantity = 1;
+              }
+              for (var i = 0; i < quantity; i++) {
+                if (this.interactionParticle) {
+                  this.particles.push(
+                    new Particle(
+                      this,
+                      this.interactionParticle.x,
+                      this.interactionParticle.y
+                    )
+                  );
+                }
+              }
+            } else {
+              clearInterval(intervalId);
+            }
+            counter++;
+          }.bind(this),
+          50
+        );
+      }.bind(this);
+  
+      this.onTouchStart = function(e) {
+        e.preventDefault();
+        setTimeout(
+          function() {
+            if (!this.touchIsMoving) {
+              for (var i = 0; i < this.spawnQuantity; i++) {
+                this.particles.push(
+                  new Particle(
+                    this,
+                    e.changedTouches[0].clientX,
+                    e.changedTouches[0].clientY
+                  )
+                );
+              }
+            }
+          }.bind(this),
+          200
+        );
+      }.bind(this);
+  
+      this.onMouseUp = function(e) {
+        this.mouseIsDown = false;
+      }.bind(this);
+  
+      this.onMouseOut = function(e) {
+        this.removeInteractionParticle();
+      }.bind(this);
+  
+      this.onTouchEnd = function(e) {
+        e.preventDefault();
+        this.touchIsMoving = false;
+        this.removeInteractionParticle();
+      }.bind(this);
+  
+      this.canvas.addEventListener("mousemove", this.onMouseMove);
+      this.canvas.addEventListener("touchmove", this.onTouchMove);
+      this.canvas.addEventListener("mousedown", this.onMouseDown);
+      this.canvas.addEventListener("touchstart", this.onTouchStart);
+      this.canvas.addEventListener("mouseup", this.onMouseUp);
+      this.canvas.addEventListener("mouseout", this.onMouseOut);
+      this.canvas.addEventListener("touchend", this.onTouchEnd);
+    };
+  
+    ParticleNetwork.prototype.unbindUiActions = function() {
+      if (this.canvas) {
+        this.canvas.removeEventListener("mousemove", this.onMouseMove);
+        this.canvas.removeEventListener("touchmove", this.onTouchMove);
+        this.canvas.removeEventListener("mousedown", this.onMouseDown);
+        this.canvas.removeEventListener("touchstart", this.onTouchStart);
+        this.canvas.removeEventListener("mouseup", this.onMouseUp);
+        this.canvas.removeEventListener("mouseout", this.onMouseOut);
+        this.canvas.removeEventListener("touchend", this.onTouchEnd);
+      }
+    };
+  
+    var getLimitedRandom = function(min, max, roundToInteger) {
+      var number = Math.random() * (max - min) + min;
+      if (roundToInteger) {
+        number = Math.round(number);
+      }
+      return number;
+    };
+  
+    var returnRandomArrayitem = function(array) {
+      return array[Math.floor(Math.random() * array.length)];
+    };
+  
+    pna = new ParticleNetworkAnimation(); pna.init($('.particle-network-animation')[0]);
+  })();
+    </script>          
+    </body>
+</html>
